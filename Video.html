@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="videog.css">
+    <title>Html And CSS Video Gallery</title>
+</head>
+<body>
+
+    <nav class="navbar">
+     
+    <ul>
+         <li class="brand"><i class ="fab fa-spotify"></i>BTS VIDEO</li>
+ 
+</ul></nav>
+    <div class="container">
+        
+        <div id="video_player">
+            <video controls poster="E:\ALL PROJECTS\PROJECT2\images (3).jpeg" class="video" id="video">
+                <source src="E:\ALL PROJECTS\PROJECT2\video\butter.mp4" type="video/mp4">
+                <source src="E:\ALL PROJECTS\PROJECT2\bts\butter.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="scrollBox">
+            <div class="box">
+                <img src="https://th.bing.com/th/id/OIP.Eysb-bAV-gLlmBVZQ3qT8wHaDt?w=326&h=175&c=7&r=0&o=5&dpr=1.25&pid=1.7">
+                <div class="box-content">
+                    <h3>DYNAMITE BY BTS</h3>
+                    <a href="E:\ALL PROJECTS\PROJECT2\bts\dynamite.mp4" class="btn">Watch</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://entertainment.inquirer.net/files/2018/11/Screen-Shot-2018-11-21-at-5.01.09-PM-2-620x349.jpg">
+                <div class="box-content">
+                    <h3>DNA BY BTS</h3>
+                    <a href="E:\ALL PROJECTS\PROJECT2\bts\dna.mp4" class="btn">Watch</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="E:\ALL PROJECTS\PROJECT2\images (4).jpeg">
+                <div class="box-content">
+                    <h3>MY UNIVERSE BY COLDPLAY,BTS,SUGA</h3>
+                    <a href="E:\ALL PROJECTS\PROJECT2\bts\myuniverse.mp4" class="btn">Watch</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="E:\ALL PROJECTS\PROJECT2\images (2).jpeg">
+                <div class="box-content">
+                    <h3>Boy_With_Luv</h3>
+                    <a href="E:\ALL PROJECTS\PROJECT2\bts\Boy_With_Luv.mp4" class="btn">Watch</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="E:\ALL PROJECTS\PROJECT2\images (5).jpeg">
+                <div class="box-content">
+                    <h3>IDOL BY BTS</h3>
+                    <a href="E:\ALL PROJECTS\PROJECT2\bts\butter.mp4"class="btn">Watch</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://th.bing.com/th/id/OIP.HtGiwMjMgKP_CUpwPynLLwHaE7?w=241&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7">
+                <div class="box-content">
+                    <h3>MIC DROP</h3>
+                    <a href="E:\ALL PROJECTS\PROJECT2\bts\micdrop.mp4" class="btn">Watch</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ###########################javascript for vidoe Player################ -->
+
+    <script type="text/javascript">
+        let anchors = document.querySelectorAll('div .btn');
+    let links = [...anchors];
+    
+    for (let i=0; i<links.length; i++) {
+        links[i].onclick = handler;
+    }
+    function handler(e) {
+        e.preventDefault();
+        let videotarget = this.getAttribute("href");
+        let filename = videotarget.substr(0, videotarget.lastIndexOf('.'));
+        let video = document.getElementById("video");
+        video.removeAttribute("poster");
+        let source = document.querySelectorAll("#video_player video source");
+        source[0].src = filename + ".mp4";
+        source[1].src = filename + ".m4v";
+        video.load();
+        video.play();
+    }
+    </script>
+</body>
+</html>
